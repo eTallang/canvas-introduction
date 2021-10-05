@@ -1,9 +1,9 @@
-import "../styles.scss";
-import Circle from "./circle";
+import '../styles.scss';
+import Circle from './circle';
 import Mouse from './types';
 
-const container = document.getElementById("root") as HTMLCanvasElement;
-const context = container.getContext("2d");
+const container = document.getElementById('root') as HTMLCanvasElement;
+const context = container.getContext('2d');
 const backgroundColor = 'rgba(16, 18, 25, 1)';
 container.style.backgroundColor = backgroundColor;
 
@@ -14,11 +14,11 @@ const fps = 60;
 
 const mouse: Mouse = {
   x: undefined,
-  y: undefined
-}
+  y: undefined,
+};
 
 // const colors = ["#D94862", "#344973", "#F2E750", "#D98218", "#F26849"];
-const colors = ["#fffce0", '#D94862',"#F26849"];
+const colors = ['#fffce0', '#D94862', '#F26849'];
 let circles: Circle[] = [];
 const speedX = 2;
 const speedY = 1.5;
@@ -31,8 +31,10 @@ function generateCircles(amount: number) {
     const x = Math.random() * (canvasWidth - radius * 2) + radius;
     const y = Math.random() * (canvasHeight - radius * 2) + radius;
     const color = colors[Math.floor(Math.random() * colors.length)];
-    const dx = Math.random() * size * speedX * (3 - 6 * Math.round(Math.random()));
-    const dy = Math.random() * size * speedY * (3 - 6 * Math.round(Math.random()));
+    const dx =
+      Math.random() * size * speedX * (3 - 6 * Math.round(Math.random()));
+    const dy =
+      Math.random() * size * speedY * (3 - 6 * Math.round(Math.random()));
     circles.push(
       new Circle(
         context,
@@ -56,7 +58,7 @@ function render(timestamp?: number) {
   if (timestamp - lastTimeStamp > 1000 / fps) {
     lastTimeStamp = timestamp;
     context.clearRect(0, 0, canvasWidth, canvasHeight);
-  
+
     circles.forEach((circle) => circle.update(mouse));
   }
 }
@@ -66,18 +68,18 @@ function setCanvasSize() {
   container.height = canvasHeight;
 }
 
-window.addEventListener("resize", () => {
+window.addEventListener('resize', () => {
   canvasWidth = window.innerWidth;
   canvasHeight = window.innerHeight;
   setCanvasSize();
 });
 
-window.addEventListener("mousemove", (e: MouseEvent) => {
+window.addEventListener('mousemove', (e: MouseEvent) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
-window.addEventListener("mouseout", (e: MouseEvent) => {
+window.addEventListener('mouseout', (e: MouseEvent) => {
   mouse.x = undefined;
   mouse.y = undefined;
 });

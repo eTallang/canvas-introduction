@@ -1,4 +1,4 @@
-import Mouse from "./types";
+import Mouse from './types';
 
 export default class Circle {
   private scale = 1;
