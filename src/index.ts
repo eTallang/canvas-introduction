@@ -17,7 +17,6 @@ const mouse: Mouse = {
   y: undefined,
 };
 
-// const colors = ["#D94862", "#344973", "#F2E750", "#D98218", "#F26849"];
 const colors = ['#fffce0', '#D94862', '#F26849'];
 let circles: Circle[] = [];
 const speedX = 2;
