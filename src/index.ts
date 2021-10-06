@@ -10,7 +10,7 @@ container.height = canvasHeight;
 container.width = canvasWidth;
 container.style.backgroundColor = 'rgba(16, 18, 25, 1)';
 
-const circle = new Circle(context);
+const circle = new Circle(context, canvasWidth, canvasHeight);
 
 function render() {
   context.clearRect(0, 0, canvasWidth, canvasHeight);
