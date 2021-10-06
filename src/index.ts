@@ -11,6 +11,9 @@ container.height = canvasHeight;
 container.width = canvasWidth;
 container.style.backgroundColor = 'rgba(16, 18, 25, 1)';
 
+let mouseX: number = undefined;
+let mouseY: number = undefined;
+
 let circles: Circle[];
 
 function createCircles(amount: number) {
@@ -42,9 +45,19 @@ function createCircles(amount: number) {
 
 function render() {
   context.clearRect(0, 0, canvasWidth, canvasHeight);
-  circles.forEach((circle) => circle.update());
+  circles.forEach((circle) => circle.update(mouseX, mouseY));
   window.requestAnimationFrame(render);
 }
+
+window.addEventListener('mousemove', (e: MouseEvent) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+window.addEventListener('mouseout', (e: MouseEvent) => {
+  mouseX = undefined;
+  mouseY = undefined;
+});
 
 createCircles(400);
 render();
