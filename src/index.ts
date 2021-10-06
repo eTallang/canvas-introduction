@@ -10,12 +10,22 @@ container.height = canvasHeight;
 container.width = canvasWidth;
 container.style.backgroundColor = 'rgba(16, 18, 25, 1)';
 
-const circle = new Circle(context, canvasWidth, canvasHeight);
+let circles: Circle[];
+
+function createCircles(amount: number) {
+  circles = [];
+
+  for (let i = 0; i < amount; i++) {
+    const circle = new Circle(context, canvasWidth, canvasHeight);
+    circles.push(circle);
+  }
+}
 
 function render() {
   context.clearRect(0, 0, canvasWidth, canvasHeight);
-  circle.update();
+  circles.forEach(circle => circle.update());
   window.requestAnimationFrame(render);
 }
 
+createCircles(10);
 render();
