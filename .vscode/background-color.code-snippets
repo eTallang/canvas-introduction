@@ -22,5 +22,25 @@
 			"const colors = ['#fffce0', '#D94862', '#F26849'];",
 		],
 		"description": "Defines colors"
-	}
+	},
+	"Create circle class": {
+		"scope": "typescript",
+		"prefix": "create-circle-class",
+		"body": [
+			"export default class Circle {",
+      "  constructor() {}",
+      "",
+      "  private updatePosition() {}",
+      "",
+      "  private drawCircle() {}",
+      "",
+      "  update() {",
+      "    this.updatePosition();",
+      "    this.drawCircle();",
+      "  }",
+      "}",
+		],
+		"description": "Create circle class"
+	},
+
 }
