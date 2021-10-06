@@ -9,4 +9,10 @@ container.width = window.innerWidth;
 container.style.backgroundColor = 'rgba(16, 18, 25, 1)';
 
 const circle = new Circle(context);
-circle.update();
+
+function render() {
+  circle.update();
+  window.requestAnimationFrame(render);
+}
+
+render();
